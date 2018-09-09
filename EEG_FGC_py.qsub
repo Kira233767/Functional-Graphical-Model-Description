@@ -1,0 +1,24 @@
+#!/bin/bash --login
+### define resources needed:
+### walltime - how long you expect the job to run
+#PBS -l walltime=04:00:00
+ 
+### nodes:ppn - how many nodes & cores per node (ppn) that you require
+#PBS -l nodes=4:ppn=8
+ 
+### mem: amount of memory that the job will need
+#PBS -l mem=128gb
+ 
+### you can give your job a name for easier identification
+#PBS -N EEG_FGC
+
+# email me
+#PBS -m abe
+
+cd /mnt/home/lipeide/Classification/Project1/EEGApplication_py
+  
+module load Python3/3.5.0
+source ~/Graph_Model_Classification/bin/activate
+  
+python EEG_FGC_HPCC.py
+  
